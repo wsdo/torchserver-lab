@@ -29,6 +29,30 @@ torch-model-archiver --model-name chatglm2 \
     --extra-files "config.json,configuration_chatglm.py,generation_config.json,modeling_chatglm.py,quantization.py,special_tokens_map.json,tokenization_chatglm.py,tokenizer_config.json,tokenizer.model"
 ```
 
+
+
+
+# 处理模型
+python load_and_save.py --model_name_or_path /root/chatglm2-6b --quantization_bit 4 --cache_dir ./model
+
+
+# 创建保存mar文件的目录
+mkdir model_store
+
+# 进入模型文件的目录
+cd model
+
+# 打包模型文件
+torch-model-archiver --model-name chatglm2  --version 1.0  --serialized-file pytorch_model.bin  --handler ../chatglm_handler.py  --export-path ../model_store  --extra-files "config.json,configuration_chatglm.py,generation_config.json,modeling_chatglm.py,quantization.py,special_tokens_map.json,tokenization_chatglm.py,tokenizer_config.json,tokenizer.model"
+
+# 回到程序目录
+cd ..
+
+# 启动服务
+torchserve --start --model-store model_store --models chatglm2.mar --ts-config config.properties 
+
+
+
 ### 参数说明
 ```
 <ul>
