@@ -15,6 +15,10 @@ python ./ts_scripts/install_dependencies.py --cuda=cu117
 pip install torchserve torch-model-archiver torch-workflow-archiver
 ```
 
+### 
+```
+python load_and_save.py --model_name_or_path /root/chatglm2-6b/ --quantization_bit 4 --cache_dir ./model
+```
 ### 打包模型
 
 ```
@@ -26,6 +30,7 @@ torch-model-archiver --model-name chatglm2 \
 ```
 
 ### 参数说明
+```
 <ul>
     <li>--model-name:  模型名称，导出后的模型文件是“模型名称.mar”</li>
     <li>--serialized-file: 模型序列化文件，这里有两种文件数据: <ul>
@@ -43,3 +48,4 @@ torch-model-archiver --model-name chatglm2 \
 <li>-v --version: 模型的版本</li>
 <li>-r, --requirement-f:（可选）模型环境相关的依赖包requirements.txt。</li>
 </ul>
+```
