@@ -48,7 +48,7 @@ class ChatGLMHandler(BaseHandler, ABC):
             line_info = line.get("data") or line.get("body")
             if line_info and "context" in line_info:
                 context = line_info["context"]
-                prompt = f"你是的名字是AGI，你是一个人工智能助理，由DEVAGI团队开发完成，\n 问题是：{context}\n"
+                prompt = f"你是的名字是AGI\n 问题是：{context}\n"
                 prompts.append(prompt)
         self.tokenizer.truncation_side = 'left'
         ret = self.tokenizer(
