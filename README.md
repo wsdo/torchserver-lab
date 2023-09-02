@@ -49,7 +49,7 @@ torch-model-archiver --model-name chatglm2  --version 1.0  --serialized-file pyt
 cd ..
 
 # 启动服务
-torchserve --start --model-store model_store --models chatglm2.mar --ts-config config.properties 
+torchserve --start --model-store model_store --models chatglm2.mar --ts-config config.properties
 
 
 
@@ -73,3 +73,29 @@ torchserve --start --model-store model_store --models chatglm2.mar --ts-config c
 <li>-r, --requirement-f:（可选）模型环境相关的依赖包requirements.txt。</li>
 </ul>
 ```
+
+
+介绍
+
+什么是TorchServe？
+TorchServe的主要功能和优势。
+安装与配置
+
+如何安装TorchServe。
+配置要求和建议。
+模型的打包与部署
+
+如何将PyTorch模型转换为TorchServe可用的格式。
+使用torch-model-archiver工具。
+启动和停止TorchServe服务。
+模型的管理
+
+注册模型。
+列出已注册的模型。
+设置模型的默认版本。
+删除模型。
+推理
+
+如何发送推理请求。
+同步和异步推理。
+批量推理。
