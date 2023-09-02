@@ -88,6 +88,7 @@ class ChatGLMHandler(BaseHandler, ABC):
     def handle(self, data, context):
         if not self.initialized:
             self.initialize(context)
+            self.initialized = True
         if data is None:
             return None
         model_input = self.preprocess(data)
