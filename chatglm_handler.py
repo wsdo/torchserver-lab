@@ -79,8 +79,9 @@ class ChatGLMHandler(BaseHandler, ABC):
         ret = []
         for prediction in inference_output:
             answer = self.tokenizer.decode(prediction)
+            decoded_text = bytes(answer, "utf-8").decode("unicode_escape")
             ret.append({
-                "answer":self.model.process_response(answer)
+                "answer":self.model.process_response(decoded_text)
                 })
         return ret
 
